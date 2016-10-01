@@ -163,7 +163,8 @@ public class HTEditorToolKit{
 	
 	private static Texture2D GetColorTexture(Color color){
 		Texture2D myTexture = new Texture2D(1, 16);
-		myTexture.set_name("Color Texture by Hedgehog Team");
+        
+		//myTexture.setname("Color Texture by Hedgehog Team");
 		myTexture.hideFlags = HideFlags.HideInInspector;
 		myTexture.filterMode = FilterMode.Bilinear;
 		myTexture.hideFlags = HideFlags.DontSave;		
