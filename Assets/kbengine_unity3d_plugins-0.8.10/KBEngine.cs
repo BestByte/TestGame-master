@@ -86,7 +86,7 @@
 		
 		// 服务端与客户端的版本号以及协议MD5
 		public string serverVersion = "";
-		public string clientVersion = "0.8.10";
+		public string clientVersion = "0.9.0";
 		public string serverScriptVersion = "";
 		public string clientScriptVersion = "0.1.0";
 		public string serverProtocolMD5 = "";
@@ -129,7 +129,8 @@
 		// 所有服务端错误码对应的错误描述
 		public static Dictionary<UInt16, ServerErr> serverErrs = new Dictionary<UInt16, ServerErr>(); 
 		
-		private System.DateTime _lastticktime = System.DateTime.Now;
+		private System.DateTime _lastTickTime = System.DateTime.Now;
+		private System.DateTime _lastTickCBTime = System.DateTime.Now;
 		private System.DateTime _lastUpdateToServerTime = System.DateTime.Now;
 		
 		// 玩家当前所在空间的id， 以及空间对应的资源
@@ -252,7 +253,8 @@
 			_entityIDAliasIDList.Clear();
 			_bufferedCreateEntityMessage.Clear();
 			
-			_lastticktime = System.DateTime.Now;
+			_lastTickTime = System.DateTime.Now;
+			_lastTickCBTime = System.DateTime.Now;
 			_lastUpdateToServerTime = System.DateTime.Now;
 			
 			spaceID = 0;
@@ -317,13 +319,24 @@
 			if(!loginappMessageImported_ && !baseappMessageImported_)
 				return;
 			
-			TimeSpan span = DateTime.Now - _lastticktime; 
+			TimeSpan span = DateTime.Now - _lastTickTime;
 			
 			// 更新玩家的位置与朝向到服务端
 			updatePlayerToServer();
 			
 			if(span.Seconds > 15)
 			{
+				span = _lastTickCBTime - _lastTickTime;
+				
+				// 如果心跳回调接收时间小于心跳发送时间，说明没有收到回调
+				// 此时应该通知客户端掉线了
+				if(span.Seconds < 0)
+				{
+					Dbg.ERROR_MSG("sendTick: Receive appTick timeout!");
+					_networkInterface.close();
+					return;
+				}
+
 				Message Loginapp_onClientActiveTickMsg = null;
 				Message Baseapp_onClientActiveTickMsg = null;
 				
@@ -349,10 +362,18 @@
 					}
 				}
 				
-				_lastticktime = System.DateTime.Now;
+				_lastTickTime = System.DateTime.Now;
 			}
 		}
-		
+
+		/*
+			服务器心跳回调
+		*/
+		public void Client_onAppActiveTickCB()
+		{
+			_lastTickCBTime = System.DateTime.Now;
+		}
+
 		/*
 			与服务端握手，与任何一个进程连接之后应该第一时间进行握手
 		*/
@@ -506,6 +527,8 @@
 		
 		private void onConnectTo_loginapp_callback(string ip, int port, bool success, object userData)
 		{
+			_lastTickCBTime = System.DateTime.Now;
+			
 			if(!success)
 			{
 				Dbg.ERROR_MSG(string.Format("KBEngine::login_loginapp(): connect {0}:{1} is error!", ip, port));  
@@ -522,6 +545,8 @@
 		
 		private void onLogin_loginapp()
 		{
+			_lastTickCBTime = System.DateTime.Now;
+			
 			if(!loginappMessageImported_)
 			{
 				var bundle = Bundle.createObject();
@@ -561,6 +586,8 @@
 
 		private void onConnectTo_baseapp_callback(string ip, int port, bool success, object userData)
 		{
+			_lastTickCBTime = System.DateTime.Now;
+			
 			if(!success)
 			{
 				Dbg.ERROR_MSG(string.Format("KBEngine::login_baseapp(): connect {0}:{1} is error!", ip, port));
@@ -577,6 +604,8 @@
 		
 		private void onLogin_baseapp()
 		{
+			_lastTickCBTime = System.DateTime.Now;
+			
 			if(!baseappMessageImported_)
 			{
 				var bundle = Bundle.createObject();
@@ -619,6 +648,8 @@
 			bundle.writeUint64(entity_uuid);
 			bundle.writeInt32(entity_id);
 			bundle.send(_networkInterface);
+			
+			_lastTickCBTime = System.DateTime.Now;
 		}
 		
 		/*
@@ -1061,7 +1092,7 @@
 				
 				MessageID msgid = stream.readUint16();
 				Int16 msglen = stream.readInt16();
-
+				
 				string msgname = stream.readString();
 				sbyte argstype = stream.readInt8();
 				Byte argsize = stream.readUint8();
@@ -1135,7 +1166,8 @@
 			Dbg.DEBUG_MSG("KBEngine::onOpenLoginapp_resetpassword: successfully!");
 			currserver = "loginapp";
 			currstate = "resetpassword";
-			
+			_lastTickCBTime = System.DateTime.Now;
+
 			if(!loginappMessageImported_)
 			{
 				Bundle bundle = Bundle.createObject();
@@ -1179,6 +1211,8 @@
 
 		private void onConnectTo_resetpassword_callback(string ip, int port, bool success, object userData)
 		{
+			_lastTickCBTime = System.DateTime.Now;
+			
 			if(!success)
 			{
 				Dbg.ERROR_MSG(string.Format("KBEngine::resetpassword_loginapp(): connect {0}:{1} is error!", ip, port));
@@ -1283,6 +1317,7 @@
 			Dbg.DEBUG_MSG("KBEngine::onOpenLoginapp_createAccount: successfully!");
 			currserver = "loginapp";
 			currstate = "createAccount";
+			_lastTickCBTime = System.DateTime.Now;
 			
 			if(!loginappMessageImported_)
 			{
@@ -1299,6 +1334,8 @@
 		
 		private void onConnectTo_createAccount_callback(string ip, int port, bool success, object userData)
 		{
+			_lastTickCBTime = System.DateTime.Now;
+			
 			if(!success)
 			{
 				Dbg.ERROR_MSG(string.Format("KBEngine::createAccount_loginapp(): connect {0}:{1} is error!", ip, port));
@@ -1898,10 +1935,25 @@
 				bundle.writeFloat(position.x);
 				bundle.writeFloat(position.y);
 				bundle.writeFloat(position.z);
+				
+				double x = ((double)direction.x / 360 * (System.Math.PI * 2));
+				double y = ((double)direction.y / 360 * (System.Math.PI * 2));
+				double z = ((double)direction.z / 360 * (System.Math.PI * 2));
+				
+				// 根据弧度转角度公式会出现负数
+				// unity会自动转化到0~360度之间，这里需要做一个还原
+				if(x - System.Math.PI > 0.0)
+					x -= System.Math.PI * 2;
 
-				bundle.writeFloat((float)((double)direction.x / 360 * 6.283185307179586));
-				bundle.writeFloat((float)((double)direction.y / 360 * 6.283185307179586));
-				bundle.writeFloat((float)((double)direction.z / 360 * 6.283185307179586));
+				if(y - System.Math.PI > 0.0)
+					y -= System.Math.PI * 2;
+				
+				if(z - System.Math.PI > 0.0)
+					z -= System.Math.PI * 2;
+				
+				bundle.writeFloat((float)x);
+				bundle.writeFloat((float)y);
+				bundle.writeFloat((float)z);
 				bundle.writeUint8((Byte)(playerEntity.isOnGround == true ? 1 : 0));
 				bundle.writeUint32(spaceID);
 				bundle.send(_networkInterface);
@@ -1929,9 +1981,24 @@
 					bundle.writeFloat(position.y);
 					bundle.writeFloat(position.z);
 
-					bundle.writeFloat((float)((double)direction.x / 360 * 6.283185307179586));
-					bundle.writeFloat((float)((double)direction.y / 360 * 6.283185307179586));
-					bundle.writeFloat((float)((double)direction.z / 360 * 6.283185307179586));
+					double x = ((double)direction.x / 360 * (System.Math.PI * 2));
+					double y = ((double)direction.y / 360 * (System.Math.PI * 2));
+					double z = ((double)direction.z / 360 * (System.Math.PI * 2));
+				
+					// 根据弧度转角度公式会出现负数
+					// unity会自动转化到0~360度之间，这里需要做一个还原
+					if(x - System.Math.PI > 0.0)
+						x -= System.Math.PI * 2;
+
+					if(y - System.Math.PI > 0.0)
+						y -= System.Math.PI * 2;
+					
+					if(z - System.Math.PI > 0.0)
+						z -= System.Math.PI * 2;
+					
+					bundle.writeFloat((float)x);
+					bundle.writeFloat((float)y);
+					bundle.writeFloat((float)z);
 					bundle.writeUint8((Byte)(entity.isOnGround == true ? 1 : 0));
 					bundle.writeUint32(spaceID);
 					bundle.send(_networkInterface);
@@ -2234,7 +2301,7 @@
 		{
 			Int32 eid = getAoiEntityIDFromStream(stream);
 			
-			float y = stream.readInt8();
+			SByte y = stream.readInt8();
 			
 			_updateVolatileData(eid, 0.0f, 0.0f, 0.0f, y, KBEDATATYPE_BASE.KBE_FLT_MAX, KBEDATATYPE_BASE.KBE_FLT_MAX, -1);
 		}
