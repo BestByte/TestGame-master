@@ -5,6 +5,7 @@ using System.Text;
 using UnityEngine.UI;
 using UnityEngine;
 using KBEngine;
+using UnityEngine.SceneManagement;
 	public class ui_menu:MonoBehaviour
 	{
 	public Button but_match;
@@ -14,23 +15,41 @@ using KBEngine;
 		
 		//DontDestroyOnLoad(gameObject.transform);
 		//KBEngine.Event.registerOut("onReqAvatarList", this, "onReqAvatarList");
-		KBEngine.Event.registerOut("on_match", this, "on_match");
-		
-		Player account = (Player)KBEngineApp.app.player();
+		KBEngine.Event.registerOut("on_req_match", this, "on_req_match");
+		KBEngine.Event.registerOut("on_match_success", this, "on_match_success");
+
+		Player player = (Player)KBEngineApp.app.player();
 		
 
 	}
+	public void on_match_success(string msg)
+	{
+		if (msg != null)
+		{
+			print("匹配成功.");
+			text_status.text = "匹配成功...";
+			SceneManager.LoadScene("scene_play");
+		}
+		else
+		{
+			text_status.text = "连接错误";
+		}
+	}
 	public void on_match()
 	{
-		print("");
+		Player player = (Player)KBEngineApp.app.player();
+
+		if (player != null)
+			player.on_match();
+		print("player.on_match();");
 		
 	}
-	public void on_match_status(bool beSuccess)
+	public void on_req_match(string msg)
 	{
-		if (beSuccess)
+		if (msg !=null)
 		{
-			print("连接成功，正在登陆");
-			text_status.text = "连接成功，正在登陆";
+			print("正在匹配...");
+			text_status.text = "正在匹配...";
 		}
 		else
 		{

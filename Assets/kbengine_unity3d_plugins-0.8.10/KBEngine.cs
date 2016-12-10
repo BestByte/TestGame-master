@@ -94,7 +94,7 @@
 		
 		// 持久化插件信息， 例如：从服务端导入的协议可以持久化到本地，下次登录版本不发生改变
 		// 可以直接从本地加载来提供登录速度
-		private PersistentInofs _persistentInofs = null;
+		private PersistentInfos _persistentInfos = null;
 		
 		// 当前玩家的实体id与实体类别
 		public UInt64 entity_uuid = 0;
@@ -165,7 +165,7 @@
             
             // 允许持久化KBE(例如:协议，entitydef等)
             if(args.persistentDataPath != "")
-         	   _persistentInofs = new PersistentInofs(args.persistentDataPath);
+         	   _persistentInfos = new PersistentInfos(args.persistentDataPath);
          	
          	return true;
 		}
@@ -428,8 +428,8 @@
 			Dbg.ERROR_MSG("Client_onVersionNotMatch: verInfo=" + clientVersion + "(server: " + serverVersion + ")");
 			Event.fireAll("onVersionNotMatch", new object[]{clientVersion, serverVersion});
 			
-			if(_persistentInofs != null)
-				_persistentInofs.onVersionNotMatch(clientVersion, serverVersion);
+			if(_persistentInfos != null)
+				_persistentInfos.onVersionNotMatch(clientVersion, serverVersion);
 		}
 
 		/*
@@ -442,8 +442,8 @@
 			Dbg.ERROR_MSG("Client_onScriptVersionNotMatch: verInfo=" + clientScriptVersion + "(server: " + serverScriptVersion + ")");
 			Event.fireAll("onScriptVersionNotMatch", new object[]{clientScriptVersion, serverScriptVersion});
 			
-			if(_persistentInofs != null)
-				_persistentInofs.onScriptVersionNotMatch(clientScriptVersion, serverScriptVersion);
+			if(_persistentInfos != null)
+				_persistentInfos.onScriptVersionNotMatch(clientScriptVersion, serverScriptVersion);
 		}
 		
 		/*
@@ -465,8 +465,8 @@
 			
 			onImportServerErrorsDescr (stream);
 			
-			if(_persistentInofs != null)
-				_persistentInofs.onImportServerErrorsDescr(datas);
+			if(_persistentInfos != null)
+				_persistentInfos.onImportServerErrorsDescr(datas);
 		}
 
 		/*
@@ -837,8 +837,8 @@
 
 			onImportClientEntityDef (stream);
 			
-			if(_persistentInofs != null)
-				_persistentInofs.onImportClientEntityDef(datas);
+			if(_persistentInfos != null)
+				_persistentInfos.onImportClientEntityDef(datas);
 		}
 
 		public void onImportClientEntityDef(MemoryStream stream)
@@ -848,19 +848,19 @@
 			
 			while(stream.length() > 0)
 			{
-				string scriptmethod_name = stream.readString();
+				string scriptmodule_name = stream.readString();
 				UInt16 scriptUtype = stream.readUint16();
 				UInt16 propertysize = stream.readUint16();
 				UInt16 methodsize = stream.readUint16();
 				UInt16 base_methodsize = stream.readUint16();
 				UInt16 cell_methodsize = stream.readUint16();
 				
-				Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: import(" + scriptmethod_name + "), propertys(" + propertysize + "), " +
+				Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: import(" + scriptmodule_name + "), propertys(" + propertysize + "), " +
 						"clientMethods(" + methodsize + "), baseMethods(" + base_methodsize + "), cellMethods(" + cell_methodsize + ")!");
 				
 				
-				ScriptModule module = new ScriptModule(scriptmethod_name);
-				EntityDef.moduledefs[scriptmethod_name] = module;
+				ScriptModule module = new ScriptModule(scriptmodule_name);
+				EntityDef.moduledefs[scriptmodule_name] = module;
 				EntityDef.idmoduledefs[scriptUtype] = module;
 
 				Type Class = module.script;
@@ -886,7 +886,7 @@
 						catch (Exception e)
 						{
 							string err = "KBEngine::Client_onImportClientEntityDef: " + 
-								scriptmethod_name + ".set_" + name + ", error=" + e.ToString();
+								scriptmodule_name + ".set_" + name + ", error=" + e.ToString();
 							
 							throw new Exception(err);
 						}
@@ -915,7 +915,7 @@
 						module.idpropertys[properUtype] = savedata;
 					}
 
-					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmethod_name + "), property(" + name + "/" + properUtype + ").");
+					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmodule_name + "), property(" + name + "/" + properUtype + ").");
 				};
 				
 				while(methodsize > 0)
@@ -947,7 +947,7 @@
 						}
 						catch (Exception e)
 						{
-							string err = "KBEngine::Client_onImportClientEntityDef: " + scriptmethod_name + "." + name + ", error=" + e.ToString();
+							string err = "KBEngine::Client_onImportClientEntityDef: " + scriptmodule_name + "." + name + ", error=" + e.ToString();
 							throw new Exception(err);
 						}
 					}
@@ -965,7 +965,7 @@
 						module.idmethods[methodUtype] = savedata;
 					}
 					
-					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmethod_name + "), method(" + name + ").");
+					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmodule_name + "), method(" + name + ").");
 				};
 	
 				while(base_methodsize > 0)
@@ -993,7 +993,7 @@
 					module.base_methods[name] = savedata;
 					module.idbase_methods[methodUtype] = savedata;
 					
-					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmethod_name + "), base_method(" + name + ").");
+					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmodule_name + "), base_method(" + name + ").");
 				};
 				
 				while(cell_methodsize > 0)
@@ -1020,12 +1020,12 @@
 				
 					module.cell_methods[name] = savedata;
 					module.idcell_methods[methodUtype] = savedata;
-					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmethod_name + "), cell_method(" + name + ").");
+					//Dbg.DEBUG_MSG("KBEngine::Client_onImportClientEntityDef: add(" + scriptmodule_name + "), cell_method(" + name + ").");
 				};
 				
 				if(module.script == null)
 				{
-					Dbg.ERROR_MSG("KBEngine::Client_onImportClientEntityDef: module(" + scriptmethod_name + ") not found!");
+					Dbg.ERROR_MSG("KBEngine::Client_onImportClientEntityDef: module(" + scriptmodule_name + ") not found!");
 				}
 
 				foreach(string name in module.methods.Keys)
@@ -1034,7 +1034,7 @@
 
 					if(module.script != null && module.script.GetMethod(name) == null)
 					{
-						Dbg.WARNING_MSG(scriptmethod_name + "(" + module.script + "):: method(" + name + ") no implement!");
+						Dbg.WARNING_MSG(scriptmodule_name + "(" + module.script + "):: method(" + name + ") no implement!");
 					}
 				};
 			}
@@ -1076,8 +1076,8 @@
 
 			onImportClientMessages (stream);
 			
-			if(_persistentInofs != null)
-				_persistentInofs.onImportClientMessages(currserver, datas);
+			if(_persistentInfos != null)
+				_persistentInfos.onImportClientMessages(currserver, datas);
 		}
 
 		public void onImportClientMessages(MemoryStream stream)
@@ -1351,8 +1351,8 @@
 		*/
 		public void onServerDigest()
 		{
-			if(_persistentInofs != null)
-				_persistentInofs.onServerDigest(currserver, serverProtocolMD5, serverEntitydefMD5);
+			if(_persistentInfos != null)
+				_persistentInfos.onServerDigest(currserver, serverProtocolMD5, serverEntitydefMD5);
 		}
 
 		/*
@@ -1423,9 +1423,6 @@
 				// Dbg.WARNING_MSG("KBEngine::Client_onCreatedProxies: eid(" + eid + ") has exist!");
 				Client_onEntityDestroyed(eid);
 			}
-
-			MemoryStream entityMessage = null;
-			_bufferedCreateEntityMessage.TryGetValue(eid, out entityMessage);
 				
 			entity_uuid = rndUUID;
 			entity_id = eid;
@@ -1435,6 +1432,7 @@
 			if(!EntityDef.moduledefs.TryGetValue(entityType, out module))
 			{
 				Dbg.ERROR_MSG("KBEngine::Client_onCreatedProxies: not found module(" + entityType + ")!");
+				return;
 			}
 			
 			Type runclass = module.script;
@@ -1451,6 +1449,9 @@
 			entity.baseMailbox.type = Mailbox.MAILBOX_TYPE.MAILBOX_TYPE_BASE;
 
 			entities[eid] = entity;
+			
+			MemoryStream entityMessage = null;
+			_bufferedCreateEntityMessage.TryGetValue(eid, out entityMessage);
 			
 			if(entityMessage != null)
 			{

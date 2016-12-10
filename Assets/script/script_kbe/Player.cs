@@ -11,6 +11,7 @@ public class Player : KBEngine.GameObject {
 		{
 			//player初始化完成之后，就向unity脚本层输出onLoginSuccessfully
 			Event.fireOut("onLoginSuccessfully", new object[] { KBEngineApp.app.entity_uuid, id, this });
+
 		}
 		// Use this for initialization
 		void Start () {
@@ -32,6 +33,19 @@ public class Player : KBEngine.GameObject {
 
 				Event.fireOut("on_req_match", new object[] { msg });
 			}
+		}
+		public void on_match_success(string msg)
+		{
+			if (msg != null)
+			{
+				//ui event
+
+				Event.fireOut("on_req_match", new object[] { msg });
+			}
+		}
+		public void on_match()
+		{
+			baseCall("on_match");
 		}
 }
 }
