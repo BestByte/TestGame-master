@@ -1,0 +1,440 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: NVIDIA GeForce 310M        (ID=0xa75)
+    Vendor:   NVIDIA
+    VRAM:     1448 MB
+    Driver:   21.21.13.4201
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Project\unity\TestGame-master\demo_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Project\unity\TestGame-master\demo_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading E:\Project\unity\TestGame-master\demo_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.079 seconds
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.412617 ms
+clientapp::start()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:50 492] loadFile: C:/Users/ilvxna/AppData/LocalLow/DefaultCompany/兔子世界/kbengine.digest.0.9.0.0.1.0.192.168.2.101.20013, datasize=64
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 160] loadFile: C:/Users/ilvxna/AppData/LocalLow/DefaultCompany/兔子世界/loginapp_clientMessages.2FFB8CCEFD971D1D76E342B0B745B1B45DF07275D0ABE74A239BD9AD9F9DB314.0.9.0.0.1.0.192.168.2.101.20013, datasize=2273
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 164] loadFile: C:/Users/ilvxna/AppData/LocalLow/DefaultCompany/兔子世界/baseapp_clientMessages.2FFB8CCEFD971D1D76E342B0B745B1B45DF07275D0ABE74A239BD9AD9F9DB314.0.9.0.0.1.0.192.168.2.101.20013, datasize=414
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 170] loadFile: C:/Users/ilvxna/AppData/LocalLow/DefaultCompany/兔子世界/serverErrorsDescr.2FFB8CCEFD971D1D76E342B0B745B1B45DF07275D0ABE74A239BD9AD9F9DB314.0.9.0.0.1.0.192.168.2.101.20013, datasize=2369
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 175] loadFile: C:/Users/ilvxna/AppData/LocalLow/DefaultCompany/兔子世界/clientEntityDef.2FFB8CCEFD971D1D76E342B0B745B1B45DF07275D0ABE74A239BD9AD9F9DB314.0.9.0.0.1.0.192.168.2.101.20013, datasize=1529
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 180] KBEngine::resetMessages()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 187] KBEngine::Client_onImportClientMessages: start currserver=loginapp(msgsize=70)...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 193] KBEngine::onImportClientMessagesCompleted: successfully! currserver=loginapp, currstate=
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 196] KBEngine::Client_onImportClientMessages: start currserver=baseapp(msgsize=11)...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 198] KBEngine::onImportClientMessagesCompleted: successfully! currserver=baseapp, currstate=
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 200] KBEngine::onImportEntityDefCompleted: successfully!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 211] KBEngine::createDataTypeFromStreams: importAlias(size=32)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 213] KBEngine::Client_onImportClientEntityDef: importAlias(UINT8:ENTITY_SUBSTATE:1)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 216] KBEngine::Client_onImportClientEntityDef: importAlias(UINT16:UINT16:2)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 217] KBEngine::Client_onImportClientEntityDef: importAlias(UINT64:UID:3)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 218] KBEngine::Client_onImportClientEntityDef: importAlias(UINT32:ITEM_COUNT:4)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 220] KBEngine::Client_onImportClientEntityDef: importAlias(INT8:ENTITY_STATE:5)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 222] KBEngine::Client_onImportClientEntityDef: importAlias(INT16:INT16:6)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 223] KBEngine::Client_onImportClientEntityDef: importAlias(INT32:ENTITY_FORBIDS:7)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 224] KBEngine::Client_onImportClientEntityDef: importAlias(INT64:INT64:8)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 226] KBEngine::Client_onImportClientEntityDef: importAlias(STRING:STRING:9)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 228] KBEngine::Client_onImportClientEntityDef: importAlias(UNICODE:UNICODE:10)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 230] KBEngine::Client_onImportClientEntityDef: importAlias(FLOAT:FLOAT:11)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 232] KBEngine::Client_onImportClientEntityDef: importAlias(DOUBLE:DOUBLE:12)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 234] KBEngine::Client_onImportClientEntityDef: importAlias(PYTHON:UID1:13)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 235] KBEngine::Client_onImportClientEntityDef: importAlias(PY_DICT:PY_DICT:14)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 239] KBEngine::Client_onImportClientEntityDef: importAlias(PY_TUPLE:PY_TUPLE:15)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 242] KBEngine::Client_onImportClientEntityDef: importAlias(PY_LIST:PY_LIST:16)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 243] KBEngine::Client_onImportClientEntityDef: importAlias(MAILBOX:MAILBOX:17)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 245] KBEngine::Client_onImportClientEntityDef: importAlias(BLOB:BLOB:18)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 246] KBEngine::Client_onImportClientEntityDef: importAlias(VECTOR2:VECTOR2:19)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 250] KBEngine::Client_onImportClientEntityDef: importAlias(VECTOR3:DIRECTION3D:20)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 252] KBEngine::Client_onImportClientEntityDef: importAlias(VECTOR4:VECTOR4:21)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 254] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:ENTITY_FORBID_COUNTER:22)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 256] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:ENTITYID_LIST:23)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 257] KBEngine::Client_onImportClientEntityDef: importAlias(FIXED_DICT:AVATAR_INFO:24)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 259] KBEngine::Client_onImportClientEntityDef: importAlias(FIXED_DICT:AVATAR_INFO_LIST:25)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 261] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:_6365631077339824128values:26)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 262] KBEngine::Client_onImportClientEntityDef: importAlias(FIXED_DICT:ITEM_INFO:27)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 264] KBEngine::Client_onImportClientEntityDef: importAlias(FIXED_DICT:ITEM_INFO_LIST:28)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 266] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:_6365631077339824129values:29)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 267] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:Null_30:30)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 269] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:Null_31:31)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 271] KBEngine::Client_onImportClientEntityDef: importAlias(ARRAY:Null_32:32)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 277] KBEngine::Client_onImportClientEntityDef: import(Player), propertys(22), clientMethods(7), baseMethods(1), cellMethods(3)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 375] Player(KBEngine.Player):: method(dialog_close) no implement!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 376] Player(KBEngine.Player):: method(dialog_setContent) no implement!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 377] Player(KBEngine.Player):: method(onAddSkill) no implement!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 379] Player(KBEngine.Player):: method(onRemoveSkill) no implement!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 380] KBEngine::onImportEntityDefCompleted: successfully!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 382] KBEngine::importMessagesFromMemoryStream(): is successfully!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:55:51 385] KBEThread::run()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1170 -> priority: 1 
+connect to server...(连接到服务端...)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\System.Configuration.dll (this message is harmless)
+Platform assembly: E:\Project\unity\TestGame-master\demo_Data\Managed\System.Xml.dll (this message is harmless)
+[2016-12-21 12:56:59 050] connect to 192.168.2.101:20013 ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 064] NetWorkInterface::_asyncConnect(), will connect to '192.168.2.101:20013' ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 081] NetWorkInterface::_asyncConnectCB(), connect to '192.168.2.101:20013' finish. error = ''
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 166] NetworkInterface::_onConnectStatus(), connect to 192.168.2.101:20013 is success!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 170] Event::fireIn: event(onConnectStatus) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 173] KBEngine::login_loginapp(): connect 192.168.2.101:20013 is success!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+连接成功，正在登陆
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 266] KBEngine::Client_onHelloCB: verInfo(0.9.0), scriptVersion(0.1.0), srvProtocolMD5(2FFB8CCEFD971D1D76E342B0B745B1B4), srvEntitydefMD5(5DF07275D0ABE74A239BD9AD9F9DB314), + ctype(2)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 270] KBEngine::onImportClientMessagesCompleted: successfully! currserver=loginapp, currstate=login
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 272] KBEngine::login_loginapp(): send login! username=222
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 568] KBEngine::Client_onLoginSuccessfully: accountName(222), addr(192.168.2.101:20015), datas(0)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 571] Event::fireOut: event(onLoginBaseapp) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 574] NetworkInterface::reset(), close socket from '192.168.2.101:20013'
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 580] connect to 192.168.2.101:20015 ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 585] NetWorkInterface::_asyncConnect(), will connect to '192.168.2.101:20015' ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 589] NetWorkInterface::_asyncConnectCB(), connect to '192.168.2.101:20015' finish. error = ''
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 669] NetworkInterface::_onConnectStatus(), connect to 192.168.2.101:20015 is success!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 671] Event::fireIn: event(onConnectStatus) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 673] KBEngine::login_baseapp(): connect 192.168.2.101:20015 is successfully!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+连接成功，正在登陆
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 770] KBEngine::Client_onHelloCB: verInfo(0.9.0), scriptVersion(0.1.0), srvProtocolMD5(3FE7E1126411C5172E9C133511F59253), srvEntitydefMD5(5DF07275D0ABE74A239BD9AD9F9DB314), + ctype(6)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 773] KBEngine::onImportClientMessagesCompleted: successfully! currserver=baseapp, currstate=
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:56:59 775] KBEngine::onImportEntityDefCompleted: successfully!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:57:00 076] KBEngine::Client_onCreatedProxies: eid(5), entityType(Player)!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.041052 ms
+[2016-12-21 12:57:00 217] NetworkInterface::~NetworkInterface(), destructed!!!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 477.
+Total: 1.316796 ms (FindLiveObjects: 0.089658 ms CreateObjectMapping: 0.044829 ms MarkObjects: 1.145178 ms  DeleteObjects: 0.035319 ms)
+
+player.req_match();
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:58:23 412] Client_onKicked: failedcode=11
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:58:23 414] Event::fireIn: event(onKicked) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:58:23 418] Event::fireOut: event(onKicked) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:58:25 159] PacketReceiver::_asyncReceive(): receive 0 bytes, disconnect from '192.168.2.101:20015'!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:58:25 247] Event::fireIn: event(onDisableConnect) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 12:58:25 250] Event::fireOut: event(onDisableConnect) not found!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+clientapp::OnDestroy(): begin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:08 336] KBEngineAppThread::destroy()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:08 576] KBEngineAppThread::process(): break!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:08 724] KBEThread::end()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:09 132] KBEngine::destroy()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:10 206] KBEngine::resetMessages()
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+clientapp::OnDestroy(): end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:20 444] NetworkInterface::~NetworkInterface(), destructed!!!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:20 593] PacketReceiver::~PacketReceiver(), destroyed!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:20 596] PacketReceiver::~PacketReceiver(), destroyed!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:21 450] PacketSender::~PacketSender(), destroyed!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:21 542] PacketSender::~PacketSender(), destroyed!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:21 544] NetworkInterface::~NetworkInterface(), destructed!!!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[2016-12-21 22:50:21 585] NetworkInterface::~NetworkInterface(), destructed!!!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

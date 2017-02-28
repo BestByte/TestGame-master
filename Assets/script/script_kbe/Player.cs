@@ -3,14 +3,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-	using KBEngine;
-	using System;
+using KBEngine;
+using System;
 
 public class Player : KBEngine.GameObject {
 		public override void __init__()
 		{
 			//player初始化完成之后，就向unity脚本层输出onLoginSuccessfully
 			Event.fireOut("onLoginSuccessfully", new object[] { KBEngineApp.app.entity_uuid, id, this });
+			//
+			
 
 		}
 		// Use this for initialization
@@ -43,9 +45,9 @@ public class Player : KBEngine.GameObject {
 				Event.fireOut("on_req_match", new object[] { msg });
 			}
 		}
-		public void on_match()
+		public void req_match()
 		{
-			baseCall("on_match");
+			baseCall("req_match");
 		}
 }
 }

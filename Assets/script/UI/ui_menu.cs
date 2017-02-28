@@ -18,7 +18,7 @@ using UnityEngine.SceneManagement;
 		KBEngine.Event.registerOut("on_req_match", this, "on_req_match");
 		KBEngine.Event.registerOut("on_match_success", this, "on_match_success");
 
-		Player player = (Player)KBEngineApp.app.player();
+		
 		
 
 	}
@@ -28,22 +28,23 @@ using UnityEngine.SceneManagement;
 		{
 			print("匹配成功.");
 			text_status.text = "匹配成功...";
-			SceneManager.LoadScene("scene_play");
+			SceneManager.LoadScene("scene_room");
 		}
 		else
 		{
 			text_status.text = "连接错误";
 		}
 	}
-	public void on_match()
+	public void req_match()
 	{
 		Player player = (Player)KBEngineApp.app.player();
 
 		if (player != null)
-			player.on_match();
-		print("player.on_match();");
-		
-	}
+		{
+			player.req_match();
+			print("player.req_match();");
+		}
+	} 
 	public void on_req_match(string msg)
 	{
 		if (msg !=null)
